@@ -90,5 +90,7 @@ class My_Telnetlib():
     
 if __name__=="__main__":    
     pass
+else:
+	pass
 
     
