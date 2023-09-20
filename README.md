@@ -1,4 +1,5 @@
 # SSH
+```
 from ssh.modul import SOM
 
 host = "localhost"
@@ -12,3 +13,4 @@ if __name__ == '__main__':
     text = ssh.read_until_ssh('#', ']', timeout=10)
     print(text)
     ssh1.close_ssh()
+```
