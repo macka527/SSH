@@ -2,10 +2,6 @@ import paramiko
 from time import monotonic as _time
 import time
 
-host = "10.128.0.126"
-username = "huaweitftp"
-password = "Qwerty123Qwerty"
-
 class SOM():
     def __init__(
         self,        
@@ -66,13 +62,3 @@ class SOM():
         time.sleep(0.1)
         b = self.ssh.recv(3000).decode('utf-8')
         return b
-
-
-if __name__ == '__main__':
-    ssh1 = SOM(host, username, password)
-    ssh1.recv_ssh()
-
-    ssh1.write_ssh('display saved-configuration time\n')
-    text = ssh1.read_until_ssh('Info:Current configuration has not been saved automatically since system booted or slave switchover', timeout=10)
-    print(text)
-    ssh1.close_ssh()
