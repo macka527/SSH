@@ -17,14 +17,14 @@ class SOM():
         self.client.connect(hostname=self.host, username=self.user, password=self.password)
         self.ssh = self.client.invoke_shell()    
 
-    def read_until_ssh(self, param1, param2='-None-', timeout=None):      
+    def read_until_ssh(self, param1, param2='-None-', timeout=30):
         # all_b список для записи всех собранных байт
         all_b = []
         # Проверяет создан ли таймер, если создан монтирует точку отсчета deadline
         if timeout is not None:
             deadline = _time() + timeout
 
-        while True:
+        while True: # бесконечный цикл
             time.sleep(0.1)
             # проверяем есть ли байты готовые к получению
             sad = self.ssh.recv_ready()
